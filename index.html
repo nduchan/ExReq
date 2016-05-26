@@ -1,11 +1,22 @@
 <head>
 <noscript><style>.jsonly {display:none}</style></noscript>
+<link rel="stylesheet" type="text/css" href="milligram.css">
 <script src="funcs_pure.js"></script>
 <script src="post.js"></script>
 </head>
 </body>
-<h1 id="title-here">Title Here</h1>
+<main class="wrapper">
+<br><br><br>
+<header class="header" id="home">
+<section class="container">
+<h1 class="title">ExReq</h1>
+<p class="description"></p>
+</section>
+</header>
 
+<section class="container">
+
+<hr>
 <p>This is a collection of javascript code snippets that perform external page requests and report their success or failure, for use with client browser security tests. In most cases, these tests involve the client making an external page request to a controlled malicious/insecure server that exhibits the vulnerability in question. A secure browser will block the response, whereas an insecure browser will not. Hence, if the requested resource is successfully loaded, a browser instance is proven to be insecure. </p>
 
 
@@ -23,7 +34,7 @@
 <ul>
 <li><p>Image - The simplest method. An <code>&lt;img&gt;</code> tag is dynamically added to the page, and succes and failure methods are registered to its <code>onload</code> and <code>onfail</code> events respectively.</p></li>
 <li><p>CORS - <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">Cross Origin Resource Sharing</a> is a Same-Origin-Policy workaround feature present in practically every modern browser (<a href="http://caniuse.com/#feat=cors">with the exception of Opera Mini</a>). This snippet simply makes a plain old javascript AJAX request to a server that is <a href="http://enable-cors.org/client.html">configured</a> to share resources with the requesting domain. </p></li>
-<li><p>JSONP - <a href="http://json-p.org/"><strong>JSON</strong> with **P**adding</a> is a slightly more hack-y SOP workaround that doesn't requre any overhead and is slightly more ubiquitous than CORS - especially among <a href="https://blog.algolia.com/jsonp-still-mandatory/">older browsers</a>. A pretty good explanation of how it works can be found <a href="http://stackoverflow.com/questions/2067472/what-is-jsonp-all-about">here</a>, but the basic idea is this - rather than returning a javascript object, the server will call a callback function in the client's context (specified by the <code>callback</code> query parameter) with the requested resource as the argument to the function. If it feels like a hack, that's because it is one.</p></li>
+<li><p>JSONP - <a href="http://json-p.org/"><strong>JSON</strong> with <strong>P</strong>adding</a> is a slightly more hack-y SOP workaround that doesn't requre any overhead and is slightly more ubiquitous than CORS - especially among <a href="https://blog.algolia.com/jsonp-still-mandatory/">older browsers</a>. A pretty good explanation of how it works can be found <a href="http://stackoverflow.com/questions/2067472/what-is-jsonp-all-about">here</a>, but the basic idea is this - rather than returning a javascript object, the server will call a callback function in the client's context (specified by the <code>callback</code> query parameter) with the requested resource as the argument to the function. If it feels like a hack, that's because it is one.</p></li>
 <li><p>jQuery Shorthand - These last three methods are all <a href="http://api.jquery.com/category/ajax/shorthand-methods/">jQuery shorthand</a> for different types of AJAX requests. They also use CORS and JSONP, but they push those methods a little bit further. They vary in their core method - either CORS or JSONP - and the type of resouce being requested.</p>
 
 <ul><li><a href="http://api.jquery.com/load/">$.load()</a> - asynchronously requests an html resource, in this case from a CORS enabled endpoint.</li>
@@ -57,7 +68,9 @@
 <input type="submit" value="Click Here"> to briefly test your browser's security using these methods! 
 </form>
 </noscript> 
-<div class="jsonly"><button onclick="test_suite(http_url,'http');test_suite(https_url,'https');alert('Thank You!');">Click Here</button>to briefly test your browsers security using these methods! </div>
+<div class="jsonly"><button onclick="test_suite(http_url,'http');test_suite(https_url,'https');alert('Thank You!');">Click Here</button> to briefly test your browsers security using these methods! </div>
 </span>
 <hr>
+</section>
+</main>
 </body>
